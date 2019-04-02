@@ -1,5 +1,8 @@
 <?php
 
+require_once ("model.php");
+require_once ("array.php");
+
 $aData = [
     ['prenom' => 'Louise',  'note' => 16],
     ['prenom' => 'Emma',    'note' => 18],
@@ -39,19 +42,61 @@ Votre code devra être livré sur un repo github
 
 1 - créer une fonction pour ajouter un élève dans le tableau $aData
     exemple d'appel ajouterEleve( ['prenom'=>'Marie', 'note'=>14] )
-2 - Créer une fonction pour lire la note d'un élève
+*/
+function exercice01() 
+{
+    global $aData;
+    ajouterEleve( ['prenom'=>'Marie', 'note'=>14] );
+    print_r($aData);
+}
+
+
+/*2 - Créer une fonction pour lire la note d'un élève
     exemple d'appel lireNote( 'Emma' )
-3 - Créer une fonction pour supprimer un élève dans le tableau $aData
+    */
+    function exercice02()
+    {
+        global $aData;
+        lireNote('Emma');
+    }
+
+/*3 - Créer une fonction pour supprimer un élève dans le tableau $aData
     exemple d'appel supprimerEleve( 'Gabriel' )
-4 - Créer une fonction pour modifier la note d'un élève
+    */
+    function exercice03()
+    {
+        global $aData;
+        supprimerEleve('Gabriel');
+        print_r($aData);
+    }
+
+/*4 - Créer une fonction pour modifier la note d'un élève
     exemple d'appel modifierNote( 'Manon', 12 )
-5 - Ecrire les données du tableau $aData dans un fichier csv nommé "resultat_exam.csv"
-6 - Créer une table 'resultat_exam' dans une database 'exercices' permettant de stocker les données de l'exercice.
+    */
+    function exercice04()
+    {
+        global $aData;
+        modifierNote('Manon', 20);
+        print_r($aData);
+    }
+
+/*5 - Ecrire les données du tableau $aData dans un fichier csv nommé "resultat_exam.csv"
+*/
+    function exercice05()
+    {
+        global $aData;
+        csv();
+        print_r($aData);
+    }
+
+/*6 - Créer une table 'resultat_exam' dans une database 'exercices' permettant de stocker les données de l'exercice.
     Créer la base de données, l'utilisateur se connectant à la base et ses droits d'accès avec phpMyAdmin
     Créer la table automatiquement grace à une fonction PHP, si la table existait la supprimer.
     Il est indispensable de créer les index utiles pour les requetes que vous utiliserez (clé primaire et autres index)
     Lire la configuration de la base de données à partir d'un fichier json "config-db.json"
-7 - Lire le fichier csv puis enregistrer les données dans la table 'resultat_exam'
+    */
+
+/*7 - Lire le fichier csv puis enregistrer les données dans la table 'resultat_exam'
     Controler la validité des données que vous intégrez dans la table
     Controler l'unicité des données insérées
 8 - Afficher la moyenne de la classe, la note mini, la note maxi
